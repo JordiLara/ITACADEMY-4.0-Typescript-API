@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-      "outDir": "build",
+      "outDir": "src/build",
       "sourceMap": true,
       "noImplicitAny": true,
       "module": "commonjs",
       "target": "es6"
-    }
-  }
+    },
+}

@@ -6,10 +6,10 @@ const options = {
     },
 };
 function randomJoke() {
-
     fetch(apiUrl, options)
         .then(response => response.json())
         .then(response => {
         console.log(response);
     });
 }
+//# sourceMappingURL=index.js.map

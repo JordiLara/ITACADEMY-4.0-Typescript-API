@@ -9,9 +9,13 @@ const options = {
 };
 
 function randomJoke() {
+
     fetch(apiUrl, options)
         .then(response => response.json())
         .then(response => {
-            console.log(response)
+            console.log(response); //no estoy seguro de esto...
+            const randomJokesElement = document.getElementById('randomJokes');
+            randomJokesElement.innerHTML = (response);
     });
+    
 }
