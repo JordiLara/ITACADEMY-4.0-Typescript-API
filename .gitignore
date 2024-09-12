@@ -4,3 +4,7 @@ package-lock.json
 .vscode
 *.log
 bundle.js
+.eslintrc.json
+.eslintignore
+.editorconfig
+.prettierrc.js

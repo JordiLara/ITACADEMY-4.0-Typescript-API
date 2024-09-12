@@ -1,5 +1,6 @@
 
-const apiUrl: string = "https://icanhazdadjoke.com/";
+const dadApiUrl: string = "https://icanhazdadjoke.com/";
+const chuckApiUrl = "https://api.chucknorris.io/jokes/random";
 
 const options = {
     method: "GET",
@@ -8,14 +9,47 @@ const options = {
     },
 };
 
-function randomJoke() {
+// calls dad jokes
 
-    fetch(apiUrl, options)
+function getDadJoke(): Promise<string> {
+
+    return fetch(dadApiUrl, options)
         .then(response => response.json())
-        .then(response => {
-            console.log(response); //no estoy seguro de esto...
-            const randomJokesElement = document.getElementById('randomJokes');
-            randomJokesElement.innerHTML = (response);
-    });
-    
+        .then(data => data.joke);
 }
+
+// calls Chuck jokes
+
+function getChuckNorrisJoke(): Promise<string> {
+
+    return fetch(chuckApiUrl)
+        .then(response => response.json())
+        .then(data => data.value);
+}
+
+// randomize jokes between dad and chuck norris jokes.
+
+function getRandomJoke(): Promise<string> {
+
+    const randomIndex = Math.random();
+    const jokePromise = randomIndex < 0.5 ? getDadJoke() : getChuckNorrisJoke();
+    return jokePromise.then(joke => {
+        let randomJokes: HTMLElement | null = document.getElementById('randomJokes')!;
+        randomJokes.innerText = joke;
+        console.log(joke);
+        return joke;
+    })
+}
+
+// throws a joke when the web page loads.
+
+document.addEventListener("DOMContentLoaded", () => {
+    getRandomJoke();
+});
+
+/* To-DO 
+panel de votación
+añadir api del tiempo
+estilos =(
+
+*/
