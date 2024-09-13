@@ -1,3 +1,4 @@
+// Jokes API URL here
 const dadApiUrl = "https://icanhazdadjoke.com/";
 const chuckApiUrl = "https://api.chucknorris.io/jokes/random";
 const options = {
@@ -32,6 +33,7 @@ function getRandomJoke() {
 // throws a joke when the web page loads.
 document.addEventListener("DOMContentLoaded", () => {
     getRandomJoke();
+    loadWeather();
 });
 function nextJoke() {
     getData();
@@ -86,7 +88,7 @@ function createDateISO() {
     return dateISO;
 }
 /* To-DO
-añadir api del tiempo
+separar funciones de chistes a otra carpeta y llamarla desde index
 estilos =(
 
 */ 
