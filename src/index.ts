@@ -1,4 +1,3 @@
-
 const dadApiUrl: string = "https://icanhazdadjoke.com/";
 const chuckApiUrl = "https://api.chucknorris.io/jokes/random";
 
