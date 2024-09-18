@@ -1,3 +1,4 @@
+
 // throws a joke when the web page loads, and the weather info
 document.addEventListener("DOMContentLoaded", () => {
     getRandomJoke();
