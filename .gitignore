@@ -10,3 +10,5 @@ bundle.js
 .eslintignore
 .editorconfig
 .prettierrc.js
+**/node_modules/**
+tailwind.config.js
